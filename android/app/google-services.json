@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "8123172679",
+    "project_id": "happy-kidz-9b6b0",
+    "storage_bucket": "happy-kidz-9b6b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8123172679:android:bf3fa4984912591dfaae62",
+        "android_client_info": {
+          "package_name": "com.example.happy_kidz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8123172679-rm8mii3um2nunne63thsmbr94kvh3d2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOTMx7i3SGn6p2L8pVdkKAHd7ezdypwIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8123172679-rm8mii3um2nunne63thsmbr94kvh3d2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
