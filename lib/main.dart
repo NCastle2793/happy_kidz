@@ -1,65 +1,93 @@
+import 'package:happy_kidz/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+/*import 'package:hive_flutter/hive_flutter.dart';*/
 
-void main() {
-  runApp(const MyApp());
+import '/config/theme.dart';
+import '/config/app_router.dart';
+import '/blocs/blocs.dart';
+import '/repositories/repositories.dart';
+import '/screens/screens.dart';
+import '/simple_bloc_observer.dart';
+import '/models/models.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  /*await Hive.initFlutter();
+  Hive.registerAdapter(ProductAdapter());*/
+  BlocOverrides.runZoned(
+        () {
+      runApp(MyApp());
+    },
+    blocObserver: SimpleBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      title: 'Happy Kidz',
+      debugShowCheckedModeBanner: false,
+      theme: theme(),
+      home: MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider(
+            create: (context) => AuthRepository(),
+          ),
+          RepositoryProvider(
+            create: (context) => UserRepository(),
+          ),
+        ],
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => AuthBloc(
+                authRepository: context.read<AuthRepository>(),
+                userRepository: context.read<UserRepository>(),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            /*BlocProvider(
+              create: (_) => CartBloc()..add(LoadCart()),
             ),
+            BlocProvider(
+              create: (_) => PaymentBloc()..add(LoadPaymentMethod()),
+            ),
+            BlocProvider(
+              create: (context) => CheckoutBloc(
+                cartBloc: context.read<CartBloc>(),
+                paymentBloc: context.read<PaymentBloc>(),
+                checkoutRepository: CheckoutRepository(),
+              ),
+            ),
+            BlocProvider(
+              create: (_) => WishlistBloc(
+                localStorageRepository: LocalStorageRepository(),
+              )..add(StartWishlist()),
+            ),
+            BlocProvider(
+              create: (_) => CategoryBloc(
+                categoryRepository: CategoryRepository(),
+              )..add(
+                LoadCategories(),
+              ),
+            ),
+            BlocProvider(
+              create: (_) => ProductBloc(
+                productRepository: ProductRepository(),
+              )..add(LoadProducts()),
+            ),*/
           ],
+          child: MaterialApp(
+            title: 'Happy Kidz',
+            debugShowCheckedModeBanner: false,
+            theme: theme(),
+            onGenerateRoute: AppRouter.onGenerateRoute,
+            initialRoute: SplashScreen.routeName,
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
