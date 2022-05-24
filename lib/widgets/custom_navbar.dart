@@ -20,7 +20,7 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.black,
+      color: Color(0xffB4FC20),
       child: Container(
         height: 55,
         child: /*(screen == '/product')
@@ -47,19 +47,19 @@ class HomeNavBar extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         IconButton(
-          icon: Icon(Icons.home, color: Colors.white),
+          icon: Icon(Icons.home, color: Colors.black),
           onPressed: () {
             Navigator.pushNamed(context, '/');
           },
         ),
         IconButton(
-          icon: Icon(Icons.shopping_cart, color: Colors.white),
+          icon: Icon(Icons.shopping_cart, color: Colors.black),
           onPressed: () {
             Navigator.pushNamed(context, '/cart');
           },
         ),
         IconButton(
-          icon: Icon(Icons.person, color: Colors.white),
+          icon: Icon(Icons.person, color: Colors.black),
           onPressed: () {
             Navigator.pushNamed(context, '/profile');
           },

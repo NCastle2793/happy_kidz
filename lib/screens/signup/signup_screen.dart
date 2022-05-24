@@ -16,6 +16,9 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffFCFCB8),
+      appBar: CustomAppBar(title: 'Login', automaticallyImplyLeading: false),
+      bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<SignupCubit, SignupState>(
           builder: (context, state) {
             return Column(

@@ -18,7 +18,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Login'),
+      backgroundColor: Color(0xffFCFCB8),
+      appBar: CustomAppBar(title: 'Login', automaticallyImplyLeading: false),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
