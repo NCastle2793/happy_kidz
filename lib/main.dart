@@ -2,6 +2,8 @@ import 'package:happy_kidz/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:happy_kidz/cubits/login/login_cubit.dart';
+import 'package:happy_kidz/cubits/signup/signup_cubit.dart';
 /*import 'package:hive_flutter/hive_flutter.dart';*/
 
 import '/config/theme.dart';
@@ -18,7 +20,7 @@ Future<void> main() async {
   /*await Hive.initFlutter();
   Hive.registerAdapter(ProductAdapter());*/
   BlocOverrides.runZoned(
-        () {
+    () {
       runApp(MyApp());
     },
     blocObserver: SimpleBlocObserver(),
@@ -35,10 +37,12 @@ class MyApp extends StatelessWidget {
       home: MultiRepositoryProvider(
         providers: [
           RepositoryProvider(
-            create: (context) => AuthRepository(),
+            create: (context) => UserRepository(),
           ),
           RepositoryProvider(
-            create: (context) => UserRepository(),
+            create: (context) => AuthRepository(
+              userRepository: context.read<UserRepository>(),
+            ),
           ),
         ],
         child: MultiBlocProvider(
@@ -79,6 +83,16 @@ class MyApp extends StatelessWidget {
                 productRepository: ProductRepository(),
               )..add(LoadProducts()),
             ),*/
+            BlocProvider(
+              create: (context) => LoginCubit(
+                authRepository: context.read<AuthRepository>(),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => SignupCubit(
+                authRepository: context.read<AuthRepository>(),
+              ),
+            ),
           ],
           child: MaterialApp(
             title: 'Happy Kidz',

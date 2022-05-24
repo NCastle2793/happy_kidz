@@ -22,7 +22,7 @@ class CustomNavBar extends StatelessWidget {
     return BottomAppBar(
       color: Colors.black,
       child: Container(
-        height: 70,
+        height: 55,
         child: /*(screen == '/product')
             ? AddToCartNavBar(product: product!)
             : (screen == '/cart')
@@ -61,7 +61,7 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/user');
+            Navigator.pushNamed(context, '/profile');
           },
         )
       ],
