@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_kidz/blocs/blocs.dart';
 import 'package:happy_kidz/repositories/auth/auth_repository.dart';
 import 'package:happy_kidz/repositories/repositories.dart';
-import 'package:happy_kidz/widgets/widgets.dart';
+import '/widgets/widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const String routeName = '/profile';
@@ -27,7 +27,8 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Profile'),
+      backgroundColor: Color(0xffFCFCB8),
+      appBar: CustomAppBar(title: 'Profile', automaticallyImplyLeading: false),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {

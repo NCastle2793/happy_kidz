@@ -18,8 +18,8 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       automaticallyImplyLeading: automaticallyImplyLeading,
       title: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          color: Colors.black,
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+          color: Color(0xff07B300),
           child: Text(
             title,
             style: Theme.of(context)
