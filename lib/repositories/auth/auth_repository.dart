@@ -1,25 +1,32 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '/repositories/repositories.dart';
+import 'package:happy_kidz/models/models.dart';
 
 class AuthRepository extends BaseAuthRepository {
   final auth.FirebaseAuth _firebaseAuth;
+  final UserRepository _userRepository;
 
-  AuthRepository({auth.FirebaseAuth? firebaseAuth})
-      : _firebaseAuth = firebaseAuth ?? auth.FirebaseAuth.instance;
+  AuthRepository(
+      {auth.FirebaseAuth? firebaseAuth, required UserRepository userRepository})
+      : _firebaseAuth = firebaseAuth ?? auth.FirebaseAuth.instance,
+        _userRepository = userRepository;
 
   @override
   Future<auth.User?> signUp({
-    required String email,
+    required User user,
     required String password,
   }) async {
     try {
-      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-
-      final user = credential.user;
-      return user;
+      _firebaseAuth
+          .createUserWithEmailAndPassword(
+            email: user.email,
+            password: password,
+          )
+          .then(
+            (value) => _userRepository.createUser(
+              user.copyWith(id: value.user!.uid),
+            ),
+          );
     } catch (_) {}
   }
 

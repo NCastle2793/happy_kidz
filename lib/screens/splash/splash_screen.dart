@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(
-      Duration(seconds: 2),
+      Duration(seconds: 3),
           () => Navigator.pushNamed(context, '/'),
     );
 
@@ -34,8 +34,8 @@ class SplashScreen extends StatelessWidget {
             Center(
               child: Image(
                 image: AssetImage('assets/images/logo.png'),
-                width: 225,
-                height: 225,
+                width: 250,
+                height: 250,
               ),
             ),
           ],
