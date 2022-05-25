@@ -31,11 +31,12 @@ class LoginScreen extends StatelessWidget {
             _PasswordInput(),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<LoginCubit>().logInWithCredentials();
+              },
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(),
                 primary: Colors.black,
-                fixedSize: Size(200, 40),
+                fixedSize: Size(200, 45),
               ),
               child: Text(
                 'Login',
