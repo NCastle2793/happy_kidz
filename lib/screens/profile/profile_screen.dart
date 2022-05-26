@@ -66,9 +66,8 @@ class ProfileScreen extends StatelessWidget {
                     Navigator.pushNamed(context, '/login');
                   },
                   style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(),
                     primary: Colors.black,
-                    fixedSize: Size(200, 40),
+                    fixedSize: Size(200, 45),
                   ),
                   child: Text(
                     'Login',
@@ -77,17 +76,17 @@ class ProfileScreen extends StatelessWidget {
                         ),
                   ),
                 ),
+                SizedBox(height: 3),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/signup');
                   },
                   style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(),
                     primary: Colors.white,
-                    fixedSize: Size(200, 40),
+                    fixedSize: Size(200, 45),
                   ),
                   child: Text(
-                    'Signup',
+                    'Sign Up',
                     style: Theme.of(context).textTheme.headline4,
                   ),
                 ),
