@@ -53,10 +53,10 @@ class MyApp extends StatelessWidget {
                 userRepository: context.read<UserRepository>(),
               ),
             ),
-            /*BlocProvider(
+            BlocProvider(
               create: (_) => CartBloc()..add(LoadCart()),
             ),
-            BlocProvider(
+            /*BlocProvider(
               create: (_) => PaymentBloc()..add(LoadPaymentMethod()),
             ),
             BlocProvider(
@@ -65,11 +65,6 @@ class MyApp extends StatelessWidget {
                 paymentBloc: context.read<PaymentBloc>(),
                 checkoutRepository: CheckoutRepository(),
               ),
-            ),
-            BlocProvider(
-              create: (_) => WishlistBloc(
-                localStorageRepository: LocalStorageRepository(),
-              )..add(StartWishlist()),
             ),
             BlocProvider(
               create: (_) => CategoryBloc(

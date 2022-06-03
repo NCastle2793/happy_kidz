@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: 'Cart'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
-      /*body: BlocBuilder<CartBloc, CartState>(
+      body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state is CartLoading) {
             return Center(
@@ -84,7 +84,7 @@ class CartScreen extends StatelessWidget {
           }
           return Text('Something went wrong');
         },
-      ),*/
+      ),
     );
   }
 }
