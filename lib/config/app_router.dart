@@ -18,15 +18,13 @@ class AppRouter {
         return LoginScreen.route();
       case SignupScreen.routeName:
         return SignupScreen.route();
-      /*case CartScreen.routeName:
+      case CartScreen.routeName:
         return CartScreen.route();
       case ProductScreen.routeName:
         return ProductScreen.route(product: settings.arguments as Product);
       case CatalogScreen.routeName:
         return CatalogScreen.route(category: settings.arguments as Category);
-      case WishlistScreen.routeName:
-        return WishlistScreen.route();
-      case CheckoutScreen.routeName:
+      /*case CheckoutScreen.routeName:
         return CheckoutScreen.route();
       case OrderConfirmation.routeName:
         return OrderConfirmation.route();
