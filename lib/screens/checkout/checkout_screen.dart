@@ -53,7 +53,7 @@ class CheckoutScreen extends StatelessWidget {
                           .add(UpdateCheckout(fullName: value));
                     },
                   ),
-                  /*SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Text(
                     'DELIVERY INFORMATION',
                     style: Theme.of(context).textTheme.headline3,
@@ -89,7 +89,7 @@ class CheckoutScreen extends StatelessWidget {
                           .read<CheckoutBloc>()
                           .add(UpdateCheckout(zipCode: value));
                     },
-                  ),*/
+                  ),
                   SizedBox(height: 20),
                   Container(
                     height: 60,

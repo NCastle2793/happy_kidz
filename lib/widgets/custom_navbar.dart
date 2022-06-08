@@ -155,7 +155,7 @@ class OrderNowNavBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        /*BlocBuilder<CheckoutBloc, CheckoutState>(
+        BlocBuilder<CheckoutBloc, CheckoutState>(
           builder: (context, state) {
             if (state is CheckoutLoading) {
               return Center(
@@ -182,13 +182,6 @@ class OrderNowNavBar extends StatelessWidget {
                   products: state.products!,
                   total: state.total!,
                 );
-              }
-              if (Platform.isIOS &&
-                  state.paymentMethod == PaymentMethod.apple_pay) {
-                return ApplePay(
-                  products: state.products!,
-                  total: state.total!,
-                );
               } else {
                 return ElevatedButton(
                   onPressed: () {
@@ -205,7 +198,7 @@ class OrderNowNavBar extends StatelessWidget {
               return Text('Something went wrong');
             }
           },
-        ),*/
+        ),
       ],
     );
   }

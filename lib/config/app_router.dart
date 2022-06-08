@@ -26,10 +26,10 @@ class AppRouter {
         return CatalogScreen.route(category: settings.arguments as Category);
       case CheckoutScreen.routeName:
         return CheckoutScreen.route();
-    /*case OrderConfirmation.routeName:
+      case OrderConfirmation.routeName:
         return OrderConfirmation.route();
-      case PaymentSelection.routeName:
-        return PaymentSelection.route();*/
+    case PaymentSelection.routeName:
+        return PaymentSelection.route();
       default:
         return _errorRoute();
     }
