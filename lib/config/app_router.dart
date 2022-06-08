@@ -24,9 +24,9 @@ class AppRouter {
         return ProductScreen.route(product: settings.arguments as Product);
       case CatalogScreen.routeName:
         return CatalogScreen.route(category: settings.arguments as Category);
-      /*case CheckoutScreen.routeName:
+      case CheckoutScreen.routeName:
         return CheckoutScreen.route();
-      case OrderConfirmation.routeName:
+    /*case OrderConfirmation.routeName:
         return OrderConfirmation.route();
       case PaymentSelection.routeName:
         return PaymentSelection.route();*/

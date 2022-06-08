@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
         ),
         bottomNavigationBar: CustomNavBar(screen: routeName),
-        /*body: Column(
+        body: Column(
           children: [
             BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, state) {
@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ],
-        ),*/
+        ),
       ),
     );
   }

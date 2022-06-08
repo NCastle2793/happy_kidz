@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
                 paymentBloc: context.read<PaymentBloc>(),
                 checkoutRepository: CheckoutRepository(),
               ),
-            ),
+            ),*/
             BlocProvider(
               create: (_) => CategoryBloc(
                 categoryRepository: CategoryRepository(),
@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
               create: (_) => ProductBloc(
                 productRepository: ProductRepository(),
               )..add(LoadProducts()),
-            ),*/
+            ),
             BlocProvider(
               create: (context) => LoginCubit(
                 authRepository: context.read<AuthRepository>(),

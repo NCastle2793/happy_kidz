@@ -9,27 +9,27 @@ import '/models/models.dart';
 
 class CustomNavBar extends StatelessWidget {
   final String screen;
-  /*final Product? product;*/
+  final Product? product;
 
   const CustomNavBar({
     Key? key,
-    required this.screen
-   /* this.product,*/
+    required this.screen,
+    this.product,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Color(0xffB4FC20),
+      color: Colors.black,
       child: Container(
-        height: 55,
-        child: /*(screen == '/product')
+        height: 70,
+        child: (screen == '/product')
             ? AddToCartNavBar(product: product!)
             : (screen == '/cart')
             ? GoToCheckoutNavBar()
             : (screen == '/checkout')
-            ? OrderNowNavBar()*/
-            HomeNavBar(),
+            ? OrderNowNavBar()
+            : HomeNavBar(),
       ),
     );
   }
@@ -47,21 +47,21 @@ class HomeNavBar extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         IconButton(
-          icon: Icon(Icons.home, color: Colors.black),
+          icon: Icon(Icons.home, color: Colors.white),
           onPressed: () {
             Navigator.pushNamed(context, '/');
           },
         ),
         IconButton(
-          icon: Icon(Icons.shopping_cart, color: Colors.black),
+          icon: Icon(Icons.shopping_cart, color: Colors.white),
           onPressed: () {
             Navigator.pushNamed(context, '/cart');
           },
         ),
         IconButton(
-          icon: Icon(Icons.person, color: Colors.black),
+          icon: Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/profile');
+            Navigator.pushNamed(context, '/user');
           },
         )
       ],
@@ -69,7 +69,7 @@ class HomeNavBar extends StatelessWidget {
   }
 }
 
-/*class AddToCartNavBar extends StatelessWidget {
+class AddToCartNavBar extends StatelessWidget {
   const AddToCartNavBar({
     Key? key,
     required this.product,
@@ -85,29 +85,6 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.share, color: Colors.white),
           onPressed: () {},
-        ),
-        BlocBuilder<WishlistBloc, WishlistState>(
-          builder: (context, state) {
-            if (state is WishlistLoading) {
-              return CircularProgressIndicator();
-            }
-            if (state is WishlistLoaded) {
-              return IconButton(
-                icon: Icon(Icons.favorite, color: Colors.white),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Added to your Wishlist!'),
-                    ),
-                  );
-                  context
-                      .read<WishlistBloc>()
-                      .add(AddProductToWishlist(product));
-                },
-              );
-            }
-            return Text('Something went wrong!');
-          },
         ),
         BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
@@ -178,7 +155,7 @@ class OrderNowNavBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        BlocBuilder<CheckoutBloc, CheckoutState>(
+        /*BlocBuilder<CheckoutBloc, CheckoutState>(
           builder: (context, state) {
             if (state is CheckoutLoading) {
               return Center(
@@ -228,8 +205,8 @@ class OrderNowNavBar extends StatelessWidget {
               return Text('Something went wrong');
             }
           },
-        ),
+        ),*/
       ],
     );
   }
-}*/
+}
