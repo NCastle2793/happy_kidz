@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import '../../models/cart_model.dart';
 import '/models/models.dart';
 
 part 'cart_event.dart';
@@ -17,9 +16,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   void _onLoadCart(
-      LoadCart event,
-      Emitter<CartState> emit,
-      ) async {
+    LoadCart event,
+    Emitter<CartState> emit,
+  ) async {
     emit(CartLoading());
     try {
       await Future<void>.delayed(const Duration(seconds: 1));
@@ -30,9 +29,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   void _onAddProduct(
-      AddProduct event,
-      Emitter<CartState> emit,
-      ) {
+    AddProduct event,
+    Emitter<CartState> emit,
+  ) {
     if (this.state is CartLoaded) {
       try {
         emit(
@@ -50,9 +49,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   void _onRemoveProduct(
-      RemoveProduct event,
-      Emitter<CartState> emit,
-      ) {
+    RemoveProduct event,
+    Emitter<CartState> emit,
+  ) {
     if (this.state is CartLoaded) {
       try {
         emit(

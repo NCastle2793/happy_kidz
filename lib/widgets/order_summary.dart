@@ -17,7 +17,7 @@ class OrderSummary extends StatelessWidget {
               Divider(thickness: 2),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -30,7 +30,7 @@ class OrderSummary extends StatelessWidget {
               ),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

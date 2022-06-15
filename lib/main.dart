@@ -2,10 +2,8 @@ import 'package:happy_kidz/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:happy_kidz/cubits/login/login_cubit.dart';
-import 'package:happy_kidz/cubits/signup/signup_cubit.dart';
-/*import 'package:hive_flutter/hive_flutter.dart';*/
-
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:happy_kidz/cubits/cubits.dart';
 import '/config/theme.dart';
 import '/config/app_router.dart';
 import '/blocs/blocs.dart';
@@ -17,8 +15,8 @@ import '/models/models.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  /*await Hive.initFlutter();
-  Hive.registerAdapter(ProductAdapter());*/
+  await Hive.initFlutter();
+  Hive.registerAdapter(ProductAdapter());
   BlocOverrides.runZoned(
     () {
       runApp(MyApp());
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Happy Kidz',
+      title: 'Zero To Unicorn',
       debugShowCheckedModeBanner: false,
       theme: theme(),
       home: MultiRepositoryProvider(
@@ -67,11 +65,16 @@ class MyApp extends StatelessWidget {
               ),
             ),
             BlocProvider(
+              create: (_) => WishlistBloc(
+                localStorageRepository: LocalStorageRepository(),
+              )..add(StartWishlist()),
+            ),
+            BlocProvider(
               create: (_) => CategoryBloc(
                 categoryRepository: CategoryRepository(),
               )..add(
-                LoadCategories(),
-              ),
+                  LoadCategories(),
+                ),
             ),
             BlocProvider(
               create: (_) => ProductBloc(

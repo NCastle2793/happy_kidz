@@ -28,17 +28,17 @@ class Checkout extends Equatable {
 
   @override
   List<Object?> get props => [
-    fullName,
-    email,
-    address,
-    city,
-    country,
-    zipCode,
-    products,
-    subtotal,
-    deliveryFee,
-    total,
-  ];
+        fullName,
+        email,
+        address,
+        city,
+        country,
+        zipCode,
+        products,
+        subtotal,
+        deliveryFee,
+        total,
+      ];
 
   Map<String, Object> toDocument() {
     Map customerAddress = Map();

@@ -19,9 +19,8 @@ class HomeScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        backgroundColor: Color(0xffFCFCB8),
         appBar: CustomAppBar(
-          title: 'Home',
+          title: 'Zero To Unicorn',
           automaticallyImplyLeading: false,
         ),
         bottomNavigationBar: CustomNavBar(screen: routeName),

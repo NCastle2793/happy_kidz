@@ -17,11 +17,11 @@ class GooglePay extends StatelessWidget {
     var _paymentItems = products
         .map(
           (product) => PaymentItem(
-          label: product.name,
-          amount: product.price.toString(),
-          type: PaymentItemType.item,
-          status: PaymentItemStatus.final_price),
-    )
+              label: product.name,
+              amount: product.price.toString(),
+              type: PaymentItemType.item,
+              status: PaymentItemStatus.final_price),
+        )
         .toList();
 
     _paymentItems.add(

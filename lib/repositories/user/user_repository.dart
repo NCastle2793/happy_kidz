@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:happy_kidz/models/user_model.dart';
+
 import 'base_user_repository.dart';
 
 class UserRepository extends BaseUserRepository {
@@ -35,6 +36,6 @@ class UserRepository extends BaseUserRepository {
         .update(user.toDocument())
         .then(
           (value) => print('User document updated.'),
-    );
+        );
   }
 }

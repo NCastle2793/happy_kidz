@@ -10,8 +10,8 @@ class LoginCubit extends Cubit<LoginState> {
   final AuthRepository _authRepository;
 
   LoginCubit({required AuthRepository authRepository})
-  : _authRepository = authRepository,
-  super(LoginState.initial());
+      : _authRepository = authRepository,
+        super(LoginState.initial());
 
   void emailChanged(String value) {
     emit(state.copyWith(
@@ -32,8 +32,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(state.copyWith(status: LoginStatus.submitting));
     try {
       await _authRepository.logInWithEmailAndPassword(
-          email: state.email,
-          password: state.password,
+        email: state.email,
+        password: state.password,
       );
       emit(state.copyWith(status: LoginStatus.success));
     } catch (_) {}

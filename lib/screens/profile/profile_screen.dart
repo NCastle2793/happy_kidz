@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_kidz/blocs/blocs.dart';
-import 'package:happy_kidz/repositories/auth/auth_repository.dart';
 import 'package:happy_kidz/repositories/repositories.dart';
 import '/widgets/widgets.dart';
 
@@ -12,16 +11,16 @@ class ProfileScreen extends StatelessWidget {
     return MaterialPageRoute(
         settings: RouteSettings(name: routeName),
         builder: (context) => BlocProvider<ProfileBloc>(
-              create: (context) => ProfileBloc(
-                authBloc: context.read<AuthBloc>(),
-                userRepository: context.read<UserRepository>(),
-              )..add(
-                  LoadProfile(
-                    context.read<AuthBloc>().state.authUser,
-                  ),
-                ),
-              child: ProfileScreen(),
-            ));
+          create: (context) => ProfileBloc(
+            authBloc: context.read<AuthBloc>(),
+            userRepository: context.read<UserRepository>(),
+          )..add(
+            LoadProfile(
+              context.read<AuthBloc>().state.authUser,
+            ),
+          ),
+          child: ProfileScreen(),
+        ));
   }
 
   @override
@@ -72,8 +71,8 @@ class ProfileScreen extends StatelessWidget {
                   child: Text(
                     'Login',
                     style: Theme.of(context).textTheme.headline4!.copyWith(
-                          color: Colors.white,
-                        ),
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 SizedBox(height: 3),

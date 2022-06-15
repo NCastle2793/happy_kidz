@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Timer(
       Duration(seconds: 3),
-          () => Navigator.pushNamed(context, '/'),
+      () => Navigator.pushNamed(context, '/'),
     );
 
     return BlocListener<AuthBloc, AuthState>(
@@ -38,6 +38,14 @@ class SplashScreen extends StatelessWidget {
                 height: 250,
               ),
             ),
+            SizedBox(height: 30),
+            Container(
+              color: Colors.black,
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+            )
           ],
         ),
       ),

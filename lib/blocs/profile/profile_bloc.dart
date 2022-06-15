@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:happy_kidz/blocs/blocs.dart';
 import 'package:equatable/equatable.dart';
-import 'package:happy_kidz/blocs/auth/auth_bloc.dart';
 import 'package:happy_kidz/models/models.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:happy_kidz/repositories/repositories.dart';

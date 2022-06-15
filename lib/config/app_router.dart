@@ -24,11 +24,13 @@ class AppRouter {
         return ProductScreen.route(product: settings.arguments as Product);
       case CatalogScreen.routeName:
         return CatalogScreen.route(category: settings.arguments as Category);
+      case WishlistScreen.routeName:
+        return WishlistScreen.route();
       case CheckoutScreen.routeName:
         return CheckoutScreen.route();
       case OrderConfirmation.routeName:
         return OrderConfirmation.route();
-    case PaymentSelection.routeName:
+      case PaymentSelection.routeName:
         return PaymentSelection.route();
       default:
         return _errorRoute();

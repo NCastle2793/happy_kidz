@@ -5,34 +5,38 @@ class User extends Equatable {
   final String? id;
   final String fullName;
   final String email;
-  /*final String address;
+  final String address;
   final String city;
-  final String zipCode;*/
+  final String country;
+  final String zipCode;
 
   const User({
     this.id,
     this.fullName = '',
     this.email = '',
-   /* this.address = '',
+    this.address = '',
     this.city = '',
-    this.zipCode = '',*/
+    this.country = '',
+    this.zipCode = '',
   });
 
   User copyWith({
     String? id,
     String? fullName,
     String? email,
-   /* String? address,
+    String? address,
     String? city,
-    String? zipCode,*/
+    String? country,
+    String? zipCode,
   }) {
     return User(
       id: id ?? this.id,
       fullName: fullName ?? this.fullName,
       email: email ?? this.email,
-      /*address: address ?? this.address,
+      address: address ?? this.address,
       city: city ?? this.city,
-      zipCode: zipCode ?? this.zipCode,*/
+      country: country ?? this.country,
+      zipCode: zipCode ?? this.zipCode,
     );
   }
 
@@ -40,10 +44,11 @@ class User extends Equatable {
     return User(
       id: snap.id,
       fullName: snap['fullName'],
-      email: snap['email'],/*
+      email: snap['email'],
       address: snap['address'],
       city: snap['city'],
-      zipCode: snap['zipCode'],*/
+      country: snap['country'],
+      zipCode: snap['zipCode'],
     );
   }
 
@@ -51,13 +56,14 @@ class User extends Equatable {
     return {
       'fullName': fullName,
       'email': email,
-     /* 'address': address,
+      'address': address,
       'city': city,
-      'zipCode': zipCode*/
+      'country': country,
+      'zipCode': zipCode
     };
   }
 
   @override
   List<Object?> get props =>
-      [id, fullName, email, /*address, city, zipCode*/];
+      [id, fullName, email, address, city, country, zipCode];
 }

@@ -20,21 +20,21 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   }
 
   void _onLoadProducts(
-      LoadProducts event,
-      Emitter<ProductState> emit,
-      ) {
+    LoadProducts event,
+    Emitter<ProductState> emit,
+  ) {
     _productSubscription?.cancel();
     _productSubscription = _productRepository.getAllProducts().listen(
           (products) => add(
-        UpdateProducts(products),
-      ),
-    );
+            UpdateProducts(products),
+          ),
+        );
   }
 
   void _onUpdateProducts(
-      UpdateProducts event,
-      Emitter<ProductState> emit,
-      ) {
+    UpdateProducts event,
+    Emitter<ProductState> emit,
+  ) {
     emit(ProductLoaded(products: event.products));
   }
 }

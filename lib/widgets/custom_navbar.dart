@@ -26,10 +26,10 @@ class CustomNavBar extends StatelessWidget {
         child: (screen == '/product')
             ? AddToCartNavBar(product: product!)
             : (screen == '/cart')
-            ? GoToCheckoutNavBar()
-            : (screen == '/checkout')
-            ? OrderNowNavBar()
-            : HomeNavBar(),
+                ? GoToCheckoutNavBar()
+                : (screen == '/checkout')
+                    ? OrderNowNavBar()
+                    : HomeNavBar(),
       ),
     );
   }
@@ -61,7 +61,7 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/user');
+            Navigator.pushNamed(context, '/profile');
           },
         )
       ],
@@ -85,6 +85,29 @@ class AddToCartNavBar extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.share, color: Colors.white),
           onPressed: () {},
+        ),
+        BlocBuilder<WishlistBloc, WishlistState>(
+          builder: (context, state) {
+            if (state is WishlistLoading) {
+              return CircularProgressIndicator();
+            }
+            if (state is WishlistLoaded) {
+              return IconButton(
+                icon: Icon(Icons.favorite, color: Colors.white),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Added to your Wishlist!'),
+                    ),
+                  );
+                  context
+                      .read<WishlistBloc>()
+                      .add(AddProductToWishlist(product));
+                },
+              );
+            }
+            return Text('Something went wrong!');
+          },
         ),
         BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {

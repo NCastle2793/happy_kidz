@@ -4,7 +4,6 @@ import 'package:happy_kidz/cubits/cubits.dart';
 import 'package:happy_kidz/cubits/login/login_cubit.dart';
 import 'package:happy_kidz/widgets//widgets.dart';
 
-
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login';
 

@@ -19,14 +19,14 @@ class AuthRepository extends BaseAuthRepository {
     try {
       _firebaseAuth
           .createUserWithEmailAndPassword(
-            email: user.email,
-            password: password,
-          )
+        email: user.email,
+        password: password,
+      )
           .then(
             (value) => _userRepository.createUser(
-              user.copyWith(id: value.user!.uid),
-            ),
-          );
+          user.copyWith(id: value.user!.uid),
+        ),
+      );
     } catch (_) {}
   }
 

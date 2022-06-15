@@ -36,12 +36,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _onAuthUserChanged(
-      AuthUserChanged event,
-      Emitter<AuthState> emit,
-      ) {
+    AuthUserChanged event,
+    Emitter<AuthState> emit,
+  ) {
     event.authUser != null
         ? emit(AuthState.authenticated(
-        authUser: event.authUser!, user: event.user!))
+            authUser: event.authUser!, user: event.user!))
         : emit(AuthState.unauthenticated());
   }
 

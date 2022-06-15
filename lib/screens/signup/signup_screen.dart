@@ -20,71 +20,71 @@ class SignupScreen extends StatelessWidget {
       appBar: CustomAppBar(title: 'Sign Up', automaticallyImplyLeading: false),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<SignupCubit, SignupState>(
-          builder: (context, state) {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _UserInput(
-                      onChanged: (value) {
-                        context.read<SignupCubit>().userChanged(
-                              state.user!.copyWith(email: value),
-                            );
-                      },
-                      labelText: 'Email'),
-                  _UserInput(
-                      onChanged: (value) {
-                        context.read<SignupCubit>().userChanged(
-                              state.user!.copyWith(fullName: value),
-                            );
-                      },
-                      labelText: 'Full Name'),
-                 /* _UserInput(
-                      onChanged: (value) {
-                        context.read<SignupCubit>().userChanged(
-                              state.user!.copyWith(city: value),
-                            );
-                      },
-                      labelText: 'City'),
-                  _UserInput(
-                      onChanged: (value) {
-                        context.read<SignupCubit>().userChanged(
-                              state.user!.copyWith(address: value),
-                            );
-                      },
-                      labelText: 'Address'),
-                  _UserInput(
-                      onChanged: (value) {
-                        context.read<SignupCubit>().userChanged(
-                              state.user!.copyWith(zipCode: value),
-                            );
-                      },
-                      labelText: 'ZIP Code'),*/
-                  const SizedBox(height: 10),
-                  _PasswordInput(),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<SignupCubit>().signUpWithCredentials();
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _UserInput(
+                    onChanged: (value) {
+                      context.read<SignupCubit>().userChanged(
+                            state.user!.copyWith(email: value),
+                          );
                     },
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
-                      fixedSize: Size(200, 45),
-                    ),
-                    child: Text(
-                      'Register',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4!
-                          .copyWith(color: Colors.white),
-                    ),
+                    labelText: 'Email'),
+                _UserInput(
+                    onChanged: (value) {
+                      context.read<SignupCubit>().userChanged(
+                            state.user!.copyWith(fullName: value),
+                          );
+                    },
+                    labelText: 'Full Name'),
+                _UserInput(
+                    onChanged: (value) {
+                      context.read<SignupCubit>().userChanged(
+                            state.user!.copyWith(city: value),
+                          );
+                    },
+                    labelText: 'City'),
+                _UserInput(
+                    onChanged: (value) {
+                      context.read<SignupCubit>().userChanged(
+                            state.user!.copyWith(address: value),
+                          );
+                    },
+                    labelText: 'Address'),
+                _UserInput(
+                    onChanged: (value) {
+                      context.read<SignupCubit>().userChanged(
+                            state.user!.copyWith(zipCode: value),
+                          );
+                    },
+                    labelText: 'ZIP Code'),
+                const SizedBox(height: 10),
+                _PasswordInput(),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<SignupCubit>().signUpWithCredentials();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    fixedSize: Size(200, 45),
                   ),
-                ],
-              ),
-            );
-          },
-        ),
+                  child: Text(
+                    'Register',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4!
+                        .copyWith(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
