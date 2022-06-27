@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
-import 'package:happy_kidz/models/models.dart';
-import 'package:happy_kidz/repositories/repositories.dart';
+import '/models/models.dart';
+import '/repositories/repositories.dart';
 
 part 'signup_state.dart';
 

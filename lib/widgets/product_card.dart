@@ -207,7 +207,7 @@ class ProductInformation extends StatelessWidget {
               ),
             ),
             Text(
-              '\$${product.price}',
+              '\R${product.price}',
               style: Theme.of(context)
                   .textTheme
                   .headline6!
@@ -339,19 +339,19 @@ class ProductBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: adjWidth - 10,
-      height: 80,
+      width: adjWidth - 5,
+      height: 70,
       margin: const EdgeInsets.only(bottom: 5),
       alignment: Alignment.bottomCenter,
       decoration: BoxDecoration(color: Colors.black.withAlpha(50)),
       child: Container(
-        width: adjWidth - 20,
-        height: 70,
+        width: adjWidth - 10,
+        height: 60,
         margin: const EdgeInsets.only(bottom: 5),
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [...widgets],

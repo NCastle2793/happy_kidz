@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '/models/product_model.dart';
+import '/models/models.dart';
 
 class Cart extends Equatable {
   final List<Product> products;
@@ -38,7 +38,7 @@ class Cart extends Equatable {
       return 'You have Free Delivery';
     } else {
       double missing = 30.0 - subtotal;
-      return 'Add \$${missing.toStringAsFixed(2)} for FREE Delivery';
+      return 'Add \R${missing.toStringAsFixed(2)} for FREE Delivery';
     }
   }
 

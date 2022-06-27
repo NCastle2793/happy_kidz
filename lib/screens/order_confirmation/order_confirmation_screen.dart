@@ -16,6 +16,7 @@ class OrderConfirmation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffFCFCB8),
       appBar: CustomAppBar(title: 'Order Confirmation'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       extendBodyBehindAppBar: true,

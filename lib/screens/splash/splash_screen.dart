@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../blocs/blocs.dart';
+import '/blocs/blocs.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String routeName = '/splash';
@@ -38,14 +37,6 @@ class SplashScreen extends StatelessWidget {
                 height: 250,
               ),
             ),
-            SizedBox(height: 30),
-            Container(
-              color: Colors.black,
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 20,
-              ),
-            )
           ],
         ),
       ),

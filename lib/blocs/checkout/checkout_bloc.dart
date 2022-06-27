@@ -1,11 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:happy_kidz/models/payment_method_model.dart';
+import '/models/models.dart';
 import 'package:equatable/equatable.dart';
 import '/blocs/blocs.dart';
-import '/models/models.dart';
-import '/repositories/checkout/checkout_repository.dart';
+import '/repositories/repositories.dart';
 
 part 'checkout_event.dart';
 part 'checkout_state.dart';

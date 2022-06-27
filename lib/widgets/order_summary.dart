@@ -23,20 +23,20 @@ class OrderSummary extends StatelessWidget {
                   children: [
                     Text('SUBTOTAL',
                         style: Theme.of(context).textTheme.headline5),
-                    Text('\$${state.cart.subtotalString}',
+                    Text('\R${state.cart.subtotalString}',
                         style: Theme.of(context).textTheme.headline5),
                   ],
                 ),
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('DELIVERY FEE',
                         style: Theme.of(context).textTheme.headline5),
-                    Text('\$${state.cart.deliveryFeeString}',
+                    Text('\R${state.cart.deliveryFeeString}',
                         style: Theme.of(context).textTheme.headline5),
                   ],
                 ),
@@ -73,7 +73,7 @@ class OrderSummary extends StatelessWidget {
                                 .copyWith(color: Colors.white),
                           ),
                           Text(
-                            '\$${state.cart.totalString}',
+                            '\R${state.cart.totalString}',
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5!

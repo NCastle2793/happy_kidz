@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:happy_kidz/models/payment_method_model.dart';
+import '/models/models.dart';
 import 'package:equatable/equatable.dart';
 
 part 'payment_event.dart';

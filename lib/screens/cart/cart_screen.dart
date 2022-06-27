@@ -17,6 +17,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffFCFCB8),
       appBar: CustomAppBar(title: 'Cart'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<CartBloc, CartState>(
@@ -43,7 +44,7 @@ class CartScreen extends StatelessWidget {
                     children: [
                       Text(
                         state.cart.freeDeliveryString,
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme.of(context).textTheme.headline5?.copyWith(fontSize: 13),
                       ),
                       ElevatedButton(
                         onPressed: () {
@@ -66,7 +67,7 @@ class CartScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   SizedBox(
-                    height: 400,
+                    height: 365,
                     child: ListView.builder(
                       itemCount: cart.keys.length,
                       itemBuilder: (BuildContext context, int index) {

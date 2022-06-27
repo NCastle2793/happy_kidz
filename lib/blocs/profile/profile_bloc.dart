@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:happy_kidz/blocs/blocs.dart';
+import '/blocs/blocs.dart';
 import 'package:equatable/equatable.dart';
-import 'package:happy_kidz/models/models.dart';
+import '/models/models.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:happy_kidz/repositories/repositories.dart';
+import '/repositories/repositories.dart';
 
 part 'profile_event.dart';
 
@@ -32,7 +32,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     });
   }
 
-  void _onLoadProfile(LoadProfile event, Emitter<ProfileState> emit,) {
+  void _onLoadProfile(
+    LoadProfile event,
+    Emitter<ProfileState> emit,
+  ) {
     if (event.authUser != null) {
       _userRepository.getUser(event.authUser!.uid).listen((user) {
         add(UpdateProfile(user));
@@ -42,7 +45,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }
   }
 
-  void _onUpdateProfile(UpdateProfile event, Emitter<ProfileState> emit,) {
+  void _onUpdateProfile(
+    UpdateProfile event,
+    Emitter<ProfileState> emit,
+  ) {
     emit(ProfileLoaded(user: event.user));
   }
 

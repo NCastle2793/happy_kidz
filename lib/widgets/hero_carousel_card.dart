@@ -24,11 +24,13 @@ class HeroCarouselCard extends StatelessWidget {
         }
       },
       child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 0,
+          vertical: 25,
+        ),
         padding: EdgeInsets.only(
           left: 5,
           right: 5,
-          top: 20.0,
-          bottom: 10.0,
         ),
         child: Stack(
           children: <Widget>[

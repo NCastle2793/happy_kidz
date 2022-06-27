@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:happy_kidz/models/models.dart';
+import '/models/models.dart';
 
 abstract class BaseAuthRepository {
   Stream<auth.User?> get user;

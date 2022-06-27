@@ -22,6 +22,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffFCFCB8),
       appBar: CustomAppBar(title: product.name),
       bottomNavigationBar: CustomNavBar(
         screen: routeName,

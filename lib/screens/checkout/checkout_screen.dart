@@ -17,6 +17,7 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffFCFCB8),
       appBar: CustomAppBar(title: 'Checkout'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: Padding(

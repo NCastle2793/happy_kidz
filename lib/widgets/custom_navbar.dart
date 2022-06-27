@@ -20,7 +20,7 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.black,
+      color: Color(0xffB4FC20),
       child: Container(
         height: 70,
         child: (screen == '/product')
@@ -47,19 +47,19 @@ class HomeNavBar extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         IconButton(
-          icon: Icon(Icons.home, color: Colors.white),
+          icon: Icon(Icons.home, color: Colors.black),
           onPressed: () {
             Navigator.pushNamed(context, '/');
           },
         ),
         IconButton(
-          icon: Icon(Icons.shopping_cart, color: Colors.white),
+          icon: Icon(Icons.shopping_cart, color: Colors.black),
           onPressed: () {
             Navigator.pushNamed(context, '/cart');
           },
         ),
         IconButton(
-          icon: Icon(Icons.person, color: Colors.white),
+          icon: Icon(Icons.person, color: Colors.black),
           onPressed: () {
             Navigator.pushNamed(context, '/profile');
           },
@@ -82,10 +82,6 @@ class AddToCartNavBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        IconButton(
-          icon: Icon(Icons.share, color: Colors.white),
-          onPressed: () {},
-        ),
         BlocBuilder<WishlistBloc, WishlistState>(
           builder: (context, state) {
             if (state is WishlistLoading) {
@@ -93,7 +89,7 @@ class AddToCartNavBar extends StatelessWidget {
             }
             if (state is WishlistLoaded) {
               return IconButton(
-                icon: Icon(Icons.favorite, color: Colors.white),
+                icon: Icon(Icons.favorite, color: Colors.black),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -121,12 +117,12 @@ class AddToCartNavBar extends StatelessWidget {
                   Navigator.pushNamed(context, '/cart');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: Colors.black,
                   shape: RoundedRectangleBorder(),
                 ),
                 child: Text(
                   'ADD TO CART',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.headline3?.copyWith(color: Colors.white),
                 ),
               );
             }
@@ -154,12 +150,12 @@ class GoToCheckoutNavBar extends StatelessWidget {
             Navigator.pushNamed(context, '/checkout');
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.white,
+            primary: Colors.black,
             shape: RoundedRectangleBorder(),
           ),
           child: Text(
             'GO TO CHECKOUT',
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context).textTheme.headline3?.copyWith(color: Colors.white),
           ),
         ),
       ],
@@ -195,7 +191,7 @@ class OrderNowNavBar extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline4!
-                        .copyWith(color: Colors.white),
+                        .copyWith(color: Colors.black),
                   ),
                 );
               }

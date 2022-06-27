@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '/repositories/repositories.dart';
-import 'package:happy_kidz/models/models.dart';
+import '/models/models.dart';
 
 class AuthRepository extends BaseAuthRepository {
   final auth.FirebaseAuth _firebaseAuth;
