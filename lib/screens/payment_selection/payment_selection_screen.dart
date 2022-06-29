@@ -37,20 +37,6 @@ class PaymentSelection extends StatelessWidget {
             return ListView(
               padding: const EdgeInsets.all(20.0),
               children: [
-                Platform.isIOS
-                    ? RawApplePayButton(
-                        style: ApplePayButtonStyle.black,
-                        type: ApplePayButtonType.inStore,
-                        onPressed: () {
-                          context.read<PaymentBloc>().add(
-                                SelectPaymentMethod(
-                                    paymentMethod: PaymentMethod.apple_pay),
-                              );
-                          Navigator.pop(context);
-                        },
-                      )
-                    : SizedBox(),
-                const SizedBox(height: 10),
                 Platform.isAndroid
                     ? RawGooglePayButton(
                         style: GooglePayButtonStyle.black,

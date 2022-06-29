@@ -23,4 +23,6 @@ class Category extends Equatable {
     );
     return category;
   }
+
+
 }

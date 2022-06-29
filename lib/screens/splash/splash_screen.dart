@@ -32,7 +32,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             Center(
               child: Image(
-                image: AssetImage('assets/images/logo.png'),
+                image: AssetImage('assets/images/splash_logo.png'),
                 width: 250,
                 height: 250,
               ),
