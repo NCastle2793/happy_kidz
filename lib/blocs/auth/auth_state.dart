@@ -1,5 +1,7 @@
 part of 'auth_bloc.dart';
 
+//We first define an enum which is the authStatus.
+//We basically have three potential statuses for the user: unknown, authenticated or unauthenticated.
 enum AuthStatus { unknown, authenticated, unauthenticated }
 
 class AuthState extends Equatable {

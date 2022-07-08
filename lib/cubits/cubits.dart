@@ -1,2 +1,2 @@
-export 'package:happy_kidz/cubits/login/login_cubit.dart';
-export 'package:happy_kidz/cubits/signup/signup_cubit.dart';
+export '/cubits/login/login_cubit.dart';
+export '/cubits/signup/signup_cubit.dart';

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_kidz/blocs/blocs.dart';
 import 'package:happy_kidz/repositories/repositories.dart';
+import 'package:happy_kidz/screens/screens.dart';
 import '/widgets/widgets.dart';
+import '/models/models.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const String routeName = '/profile';
@@ -11,16 +13,16 @@ class ProfileScreen extends StatelessWidget {
     return MaterialPageRoute(
         settings: RouteSettings(name: routeName),
         builder: (context) => BlocProvider<ProfileBloc>(
-          create: (context) => ProfileBloc(
-            authBloc: context.read<AuthBloc>(),
-            userRepository: context.read<UserRepository>(),
-          )..add(
-            LoadProfile(
-              context.read<AuthBloc>().state.authUser,
-            ),
-          ),
-          child: ProfileScreen(),
-        ));
+              create: (context) => ProfileBloc(
+                authBloc: context.read<AuthBloc>(),
+                userRepository: context.read<UserRepository>(),
+              )..add(
+                  LoadProfile(
+                    context.read<AuthBloc>().state.authUser,
+                  ),
+                ),
+              child: ProfileScreen(),
+            ));
   }
 
   @override
@@ -41,7 +43,12 @@ class ProfileScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   context.read<AuthRepository>().signOut();
+                  Navigator.pushNamed(context, '/profile');
                 },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.black,
+                  fixedSize: Size(100, 45),
+                ),
                 child: Text('Sign Out'),
               ),
             );
@@ -71,8 +78,8 @@ class ProfileScreen extends StatelessWidget {
                   child: Text(
                     'Login',
                     style: Theme.of(context).textTheme.headline4!.copyWith(
-                      color: Colors.white,
-                    ),
+                          color: Colors.white,
+                        ),
                   ),
                 ),
                 SizedBox(height: 3),
@@ -99,3 +106,30 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+/*class UserExpansionTile extends StatelessWidget {
+  final User user;
+
+  const UserExpansionTile({
+    required this.user,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return  ExpansionTile(
+      initiallyExpanded: true,
+      title: Text(
+        "User Information",
+        style: Theme.of(context).textTheme.headline3,
+      ),
+      children: <Widget>[
+        ListTile(
+          title: Text(
+            user.fullName,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
+        )
+      ],
+    );
+  }
+}*/

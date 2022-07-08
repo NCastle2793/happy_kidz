@@ -9,6 +9,9 @@ import '/repositories/repositories.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
+//We use the auth bloc to handle creation of the accounts and to handle the connection of the user
+//repository and Firestore.
+
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
   final UserRepository _userRepository;

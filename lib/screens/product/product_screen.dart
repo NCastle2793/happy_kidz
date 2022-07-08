@@ -74,7 +74,7 @@ class ProductScreen extends StatelessWidget {
                                   .copyWith(color: Colors.white),
                             ),
                             Text(
-                              '\$${product.price}',
+                              '\R${product.price}',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline5!
@@ -96,20 +96,6 @@ class ProductScreen extends StatelessWidget {
                     ListTile(
                       title: Text(
                         product.description ?? '',
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    )
-                  ],
-                ),
-                ExpansionTile(
-                  title: Text(
-                    "Delivery Information",
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
-                  children: <Widget>[
-                    ListTile(
-                      title: Text(
-                        'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     )

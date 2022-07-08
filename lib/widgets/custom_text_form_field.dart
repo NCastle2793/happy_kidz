@@ -25,6 +25,8 @@ class CustomTextFormField extends StatelessWidget {
           ),
           Expanded(
             child: TextFormField(
+              autocorrect: false,
+              keyboardType: TextInputType.visiblePassword,
               onChanged: onChanged,
               decoration: InputDecoration(
                 isDense: true,

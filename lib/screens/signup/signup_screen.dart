@@ -21,66 +21,69 @@ class SignupScreen extends StatelessWidget {
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<SignupCubit, SignupState>(
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _UserInput(
-                    onChanged: (value) {
-                      context.read<SignupCubit>().userChanged(
-                            state.user!.copyWith(email: value),
-                          );
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _UserInput(
+                      onChanged: (value) {
+                        context.read<SignupCubit>().userChanged(
+                              state.user!.copyWith(email: value),
+                            );
+                      },
+                      labelText: 'Email'),
+                  _UserInput(
+                      onChanged: (value) {
+                        context.read<SignupCubit>().userChanged(
+                              state.user!.copyWith(fullName: value),
+                            );
+                      },
+                      labelText: 'Full Name'),
+                  _UserInput(
+                      onChanged: (value) {
+                        context.read<SignupCubit>().userChanged(
+                              state.user!.copyWith(city: value),
+                            );
+                      },
+                      labelText: 'City'),
+                  _UserInput(
+                      onChanged: (value) {
+                        context.read<SignupCubit>().userChanged(
+                              state.user!.copyWith(address: value),
+                            );
+                      },
+                      labelText: 'Address'),
+                  _UserInput(
+                      onChanged: (value) {
+                        context.read<SignupCubit>().userChanged(
+                              state.user!.copyWith(zipCode: value),
+                            );
+                      },
+                      labelText: 'ZIP Code'),
+                  const SizedBox(height: 10),
+                  _PasswordInput(),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<SignupCubit>().signUpWithCredentials();
+                      Navigator.pushNamed(context, '/profile');
                     },
-                    labelText: 'Email'),
-                _UserInput(
-                    onChanged: (value) {
-                      context.read<SignupCubit>().userChanged(
-                            state.user!.copyWith(fullName: value),
-                          );
-                    },
-                    labelText: 'Full Name'),
-                _UserInput(
-                    onChanged: (value) {
-                      context.read<SignupCubit>().userChanged(
-                            state.user!.copyWith(city: value),
-                          );
-                    },
-                    labelText: 'City'),
-                _UserInput(
-                    onChanged: (value) {
-                      context.read<SignupCubit>().userChanged(
-                            state.user!.copyWith(address: value),
-                          );
-                    },
-                    labelText: 'Address'),
-                _UserInput(
-                    onChanged: (value) {
-                      context.read<SignupCubit>().userChanged(
-                            state.user!.copyWith(zipCode: value),
-                          );
-                    },
-                    labelText: 'ZIP Code'),
-                const SizedBox(height: 10),
-                _PasswordInput(),
-                const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<SignupCubit>().signUpWithCredentials();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                    fixedSize: Size(200, 45),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black,
+                      fixedSize: Size(200, 45),
+                    ),
+                    child: Text(
+                      'Register',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: Colors.white),
+                    ),
                   ),
-                  child: Text(
-                    'Register',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(color: Colors.white),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
@@ -94,18 +97,26 @@ class _UserInput extends StatelessWidget {
     Key? key,
     required this.onChanged,
     required this.labelText,
+    /*required this.initValue,*/
   }) : super(key: key);
 
   final Function(String)? onChanged;
   final String labelText;
+
+  /*final String initValue;*/
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignupCubit, SignupState>(
       builder: (context, state) {
         return TextField(
+          /*showCursor: true,
+          readOnly: true,*/
+          autocorrect: false,
+          keyboardType: TextInputType.visiblePassword,
           onChanged: onChanged,
           decoration: InputDecoration(labelText: labelText),
+          /*initialValue: initValue,*/
         );
       },
     );
@@ -118,11 +129,16 @@ class _PasswordInput extends StatelessWidget {
     return BlocBuilder<SignupCubit, SignupState>(
       builder: (context, state) {
         return TextField(
+          autocorrect: false,
+          keyboardType: TextInputType.visiblePassword,
+          /*showCursor: true,
+          readOnly: true,*/
           onChanged: (password) {
             context.read<SignupCubit>().passwordChanged(password);
           },
           decoration: InputDecoration(labelText: 'Password'),
           obscureText: true,
+          /*initialValue: "P@ssword1*",*/
         );
       },
     );
